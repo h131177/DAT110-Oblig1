@@ -27,11 +27,13 @@ public class Controller  {
 		// connect to sensor and display RPC servers
 		// create local display and sensor objects
 		// register display and sensor objects in the RPC layer
+		displayclient.connect();
+		sensorclient.connect();
 		
 		display = new Display();
 		sensor = new Sensor();
-		sensor.register(sensorclient);
-		display.register(displayclient);
+		displayclient.register(display);
+		sensorclient.register(sensor);
 		
 		/*if (true) {
 			throw new UnsupportedOperationException(TODO.method());
